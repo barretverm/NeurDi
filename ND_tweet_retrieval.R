@@ -1,7 +1,7 @@
 ### TWITTER MINING FOR NEURODIVERSITY
 
 library(academictwitteR)
-
+??academictwitteR
 
 ### SET TWITTER BEARER IN .Renviron FILE AND RESTART .rs.restartR()
 set_bearer()

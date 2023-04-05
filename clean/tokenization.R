@@ -58,3 +58,4 @@ fr$text
 
 ## I think it's safe to include only english ('en')
 data %<>% filter(lang=='en')
+unique(data$lang)

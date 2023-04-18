@@ -1,6 +1,3 @@
-from collections import Counter
-from gensim.corpora.dictionary import Dictionary
-from nltk import TweetTokenizer
 from pathlib import Path
 import pandas as pd
 

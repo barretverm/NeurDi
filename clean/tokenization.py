@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import pandas as pd
 
 def clean(year, month):
@@ -8,18 +9,9 @@ def clean(year, month):
         return
 
     print('Cleaning ' + year + '-' + month)
+
+    # Read into df
     tweets_df = pd.read_csv(csv_path)
-
-    # Moved to analysis
-        # tk = TweetTokenizer(preserve_case=False, reduce_len=False, strip_handles=True)
-        # counter = Counter()
-
-        # tweets_df['tokenized_text'] = tweets_df['text'].apply(tk.tokenize)
-        # tweets_df['tokenized_text'].apply(counter.update)
-        # counter.update(tweets_df['sourcetweet_type'])
-
-        # common = {elem:count for elem, count in counter.items() if count > 1000}
-        # print(counter)
 
     # keep english
     tweets_df = tweets_df[tweets_df['lang']=='en']
@@ -33,6 +25,19 @@ def clean(year, month):
                         'retweet_count', 'like_count', 'quote_count',
                         'user_followers_count','user_following_count', 'sourcetweet_type']]
 
+    # Tokenizer
+    tk = TweetTokenizer(preserve_case=False, reduce_len=False, strip_handles=True)
+
+    tweets_df['tokenized_text'] = tweets_df['text'].apply(tk.tokenize)
+
+    # Remove urls
+    url_pattern = re.compile('https:\/\/t.co\/\w*')
+    def remove_url(tokenized_tweet):
+        return [word for word in tokenized_tweet if not url_pattern.match(word)]
+
+    tweets_df['tokenized_text'] = tweets_df['tokenized_text'].apply(remove_url)
+
+    # Export cleaned df to csv
     filepath = Path('clean/'+ year + '/' + year + '-' + month + '.csv')
     filepath.parent.mkdir(parents=True, exist_ok=True)
     tweets_df.to_csv(filepath)

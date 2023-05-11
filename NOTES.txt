@@ -1,3 +1,24 @@
+-------------4-25-23--------------
 How do we address hyphenations?
 How do we address mispellings? UK vs US?
 What do we do with bots? How are we going to justify this in a manuscript?
+Acronyms?
+How to identify nonsense words/phrases? Delete? Is it just white noise, and not matter?
+R and Python packages - which are able to handle different things like identifying weird stuff
+
+-----------5-10-23 meeting------------
+Present: Chelsea, Barret, Isaac
+- Currently wrapping up preprocessing and tokenization. Over the summer, Isaac will send messages 
+via Teams, or email to keep the team updated, and to request clarification, help, etc.
+- Ideally, we loop in Shiyang to help oversee the logistical side of processing the Twitter data
+- Goal for the summer is to run analyses on Twitter data to inform our next steps
+- We discussed incorporating Reddit data as well - we'll address this issue after we finish
+scripts for Twitter.
+
+Considerations:
+- Which platforms are best for different outlets (ie., Reddit, Twitter)
+- Maybe we can do a methodological thing for what types of info can be best gleaned from different
+social media outlets
+- How does public discourse differ when platforms are anonymous vs. not?
+- How does this translate to organizational settings (ie., ethics, surveys vs. emails, etc.)
+- Need to look into literature to determine the current state of this area of research

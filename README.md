@@ -1,6 +1,6 @@
 # Neurodiversity Tweet Text Analysis
 
-The tweet data is has been retrieved/downloaded using R scripts. The data is stored in [raw_data](raw_data) in .csv format organized by year and month[^note].
+The tweet data is has been retrieved/downloaded using R scripts. The data is stored in [raw_data](raw_data) in .csv format organized by year and month.
 
 ## Cleaning
 The data is cleaned and tokenized by this python script: [clean/tokenization.py](clean/tokenization.py). Cleaning currently maintains the following data for each tweet.
@@ -27,4 +27,4 @@ Retweets are discarded. Cleaned data is saved to [clean](clean) organized by yea
 ## Analysis
 NLP models and other analysis methods are scripted in [analysis](analysis).
 
-[^note]: All filepaths in the code are relative to the root of the repository.
+**All filepaths in the code are relative to the root of the repository.*

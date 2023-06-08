@@ -53,7 +53,7 @@ def lda(year, month):
     lda_model = LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=num_passes)
 
     # Save results
-    path = Path('lda_results/' + year + '/' + year + '-' + month + '.txt')
+    path = Path('analysis/lda_results/' + year + '/' + year + '-' + month + '.txt')
     path.parent.mkdir(parents=True, exist_ok=True)
 
     with open(path, 'w') as f:

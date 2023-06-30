@@ -1,10 +1,13 @@
-from pathlib import Path
+import gensim.corpora as corpora
 import re
 import pandas as pd
 import nltk
 import string
+
 nltk.download('stopwords')
 from nltk.corpus import stopwords
+from pathlib import Path
+from gensim.models.phrases import Phrases, ENGLISH_CONNECTOR_WORDS
 # from nltk.stem import WordNetLemmatizer
 
 def clean(year, month):
@@ -66,7 +69,10 @@ def clean(year, month):
 
     # Remove stopwords
     stop_words = set(stopwords.words('english'))
-    stop_words.add('')
+    # Topic specific stopwords
+    extras = ['neurodiverse', 'neurodiversity', 'neurodivergent',
+              'week', 'th', '']
+    stop_words.update(extras)
     def remove_stop(tokenized_tweet):
         return [word for word in tokenized_tweet if not word.lower() in stop_words]
     tweets_df['tokenized_text'] = tweets_df['tokenized_text'].apply(remove_stop)
@@ -82,7 +88,26 @@ def clean(year, month):
     # Fix misspellings
     # correct_words = words.words()
 
-# clean('2023', 'Mar')
-for year in ['2020', '2021', '2022', '2023']:
-    for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
-        clean(year, month)
+def clean_all():        
+    for year in ['2020', '2021', '2022', '2023']:
+        for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
+            clean(year, month)
+
+def bigrams(month, year):
+    # Read in data
+    path = 'clean/'+ year + '/' + year + '-' + month + '.csv'
+    file = Path(path)
+    if not file.exists():
+        return
+    print('Analyzing ' + year + '-' + month)
+    tweet_df = pd.read_csv(path)
+
+    # Retokenize space-separated token strings
+    tweet_df['tokenized_text'] = tweet_df['tokenized_text'].str.split()
+    tweets = [tweet for tweet in tweet_df['tokenized_text'] if isinstance(tweet, list)]
+
+    dictionary = corpora.Dictionary(tweets)
+    # Document term frequency
+    corpus = [dictionary.doc2bow(tokens) for tokens in tweets]
+
+    bigram = Phrases(tweets, min_count=3, threshold=10)

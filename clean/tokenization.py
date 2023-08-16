@@ -85,9 +85,6 @@ def clean(year, month):
     filepath.parent.mkdir(parents=True, exist_ok=True)
     tweets_df.to_csv(filepath)
 
-    # Fix misspellings
-    # correct_words = words.words()
-
 def clean_all():        
     for year in ['2020', '2021', '2022', '2023']:
         for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
@@ -111,3 +108,5 @@ def bigrams(month, year):
     corpus = [dictionary.doc2bow(tokens) for tokens in tweets]
 
     bigram = Phrases(tweets, min_count=3, threshold=10)
+
+clean_all()

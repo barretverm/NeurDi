@@ -28,3 +28,5 @@ Retweets are discarded. Cleaned data is saved to [clean](clean) organized by yea
 NLP models and other analysis methods are scripted in [analysis](analysis).
 
 **All filepaths in the code are relative to the root of the repository.*
+
+[STM Documentatation](https://cran.r-project.org/web/packages/stm/stm.pdf)

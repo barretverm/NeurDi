@@ -17,9 +17,8 @@ out <- textProcessor(documents = cleanedData$text, metadata = metadata)
 
 # Analyze appropriate number of topics (K)
 # set.seed(2023)
-# stm_search <- searchK(documents = out$documents, vocab = out$vocab, K = 2:30,
-#                       init.type = "Spectral", data = out$meta, verbose=FALSE)
-
+# stm_search <- searchK(documents = out$documents, vocab = out$vocab, K = 5:20,
+#                       init.type = "Spectral", data = out$meta, verbose=TRUE)
 
 # Run STM
-stm <- stm (documents = out$documents, vocab = out$vocab, K = 10, data = out$meta)
+stm <- stm (documents = out$documents, vocab = out$vocab, K = 30, data = out$meta)

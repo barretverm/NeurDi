@@ -5,7 +5,7 @@ import string
 
 from collections import Counter
 from gensim.models import LdaModel
-from clean.tokenization import *
+from cleaning.tokenization import *
 from pathlib import Path
 from wordcloud import WordCloud
 

@@ -30,7 +30,8 @@ def clean(year, month):
                         'text', 'created_at', 'in_reply_to_user_id',
                         'user_created_at', 'user_description', 'user_location',
                         'retweet_count', 'like_count', 'quote_count',
-                        'user_followers_count','user_following_count', 'sourcetweet_type']]
+                        'user_followers_count','user_following_count',
+                        'sourcetweet_type']]
 
     # Tokenizer
     tk = nltk.TweetTokenizer(preserve_case=False, reduce_len=False, strip_handles=True)

@@ -90,6 +90,7 @@ def clean_all():
         for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
             clean(year, month)
 
+# Not currently in use
 def bigrams(month, year):
     # Read in data
     path = 'clean/'+ year + '/' + year + '-' + month + '.csv'

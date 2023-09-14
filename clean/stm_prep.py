@@ -14,7 +14,7 @@ def stm_prep(year, month):
     tweets_df = tweets_df[['tweet_id', 'tokenized_text', 'created_at']]
     
     # Split tweets into before(0) and after(1) a particular date of the form YYYY-MM-DDTHH:MM:SS.000Z
-    split_date = "2022-01-01T00:00:00.000Z"
+    split_date = "2023-03-15T00:00:00.000Z"
     tweets_df["is_after_split_date"] = tweets_df['created_at'] > split_date
     
     # Simple data for R stm analysis
@@ -30,4 +30,4 @@ def prep_all():
         for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
             stm_prep(year, month)
 
-prep_all()
+stm_prep('2023','Mar')

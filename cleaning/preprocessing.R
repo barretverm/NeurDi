@@ -11,8 +11,8 @@ library(SnowballC)
 library(tm)
 
 # read in csv (replace with your file path)
-setwd('~/Research/text_mining/Neurodiversity/NeurDi/raw_data/2022')
-data <- read.csv('2022-Mar.csv', stringsAsFactors=F)
+setwd('')
+data <- read.csv('', stringsAsFactors=F)
 
 # PREPROCESSING FUNCTION ----
 clean <- function(x){

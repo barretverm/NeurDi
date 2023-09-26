@@ -144,36 +144,48 @@ x %<>%
 
 ## Transformations
 **Custom stop word list**
-- I created different stop word lists intended for unigrams and n-grams. The reasoning behind this is that some stop words may have contextual significance, and therefore should be retained for n-gram analysis. Conversely, if these stop words will pollute data for classic BOW unigram analyses. [See custom_stop_words.csv] ()
+- I created different a custom stop word list for analysis with n-grams. The reasoning behind this is that some stop words may have contextual significance, and therefore should be retained. The list being modified is the "SMART" stop word list included in the tidytext package. 
 
-The following lists are derived from the tidytext stop words list which is included in `custom_stop_words.csv`:
+
 
 ```
-stopwords("en")
+get_stopwords(source="smart")
 ```
-
-Retained for unigram analysis: 
-- ourselves
-- against
 
 Retained for n-gram analysis:
+- able
+- after
+- against
+- allow
+- alone
+- always
+- among
+- am
+- anywhere
+- appropriate
+- before
+- cause
+- being
+- believe
+- better
+- despite
+- different
 - my
 - myself
-- we
+- need
+- needs
 - our
 - ours
 - ourselves
-- they
-- them
+- serious
 - their
 - theirs
+- them
 - themselves
-- am
-- is
-- are
-- against
-- before
-- after
+- they
+- together
+- we
+- welcome
 
 The logic behind the n-gram retention list is to capture in-group/out-group rhetoric, and to potentially capture related valence. 
 

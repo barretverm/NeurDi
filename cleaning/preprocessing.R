@@ -14,6 +14,13 @@ library(tm)
 setwd('')
 data <- read.csv('', stringsAsFactors=F)
 
+# import list of british to american lexicon conversion
+lex <- read.csv("~/NeurDi/custom_lists/lexicon_conversion.csv",
+                stringsAsFactors=F)
+british <- lex$british_lexicon 
+american <- lex$american_lexicon                   
+
+
 # PREPROCESSING FUNCTION ----
 clean <- function(x){
   
@@ -21,7 +28,7 @@ clean <- function(x){
   x %<>% 
     mutate_all(~ifelse(is.na(.),999,.)) %>%
     filter(sourcetweet_type != "retweeted"
-         & sourcetweet_type != "quoted") %>% 
+           & sourcetweet_type != "quoted") %>% 
     filter(lang=="en")                           ## filter out non-english ----
   
   # a lot of the duplicates were tweets with different links at the end
@@ -75,15 +82,24 @@ clean <- function(x){
     str = x$text, pattern = negation, replacement = negation_fixed, 
     stringi::stri_opts_fixed(case_insensitive=F))
   
+  # replace all bloody british spellings with american
+  # apply
+  x$text <- stringi::stri_replace_all_regex(
+    str = x$text, pattern = british, replacement = american, 
+    stringi::stri_opts_fixed(case_insensitive=F))
+  
   ## remove stop words ----
-  x$text <- removeWords(x$text, words = stopwords::stopwords("en"))
-  x$text <- gsub("[ |\t]{2,}", " ", x$text)      ## remove tabs ----
-  x$text <- stri_trim(x$text)                    ## remove extra white space ----
+  # x$text <- removeWords(x$text, words = stopwords::stopwords("en"))
+  # x$text <- gsub("[ |\t]{2,}", " ", x$text)      ## remove tabs ----
+  # x$text <- stri_trim(x$text)                    ## remove extra white space ----
+  
+  # was getting messy results from removeWords - using tidytext instead
+  # this also addresses white spaces
   
   return(x)
 }
 
 cleaned <- clean(data)
-write.csv(cleaned, "")
+write.csv(cleaned, "", row.names=F)
 
 ############### NEED TO ADDRESS WORK-RELATED ACRONYMS (LIKE HR)

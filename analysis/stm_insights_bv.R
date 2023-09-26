@@ -1,3 +1,6 @@
+####### STRUCTURAL TOPIC MODELING
+
+
 library(tidytext)
 library(magrittr)
 library(dplyr)
@@ -7,8 +10,8 @@ library(stm)
 # unpackage data from cleaned csv file
 
 
-setwd('~/Research/text_mining/quiet_quitting/data/PREPPED')
-df.stm <- read.csv("2022-Jul-Aug-Sep_c.csv", 
+setwd('')
+df.stm <- read.csv('', 
                         header = T, 
                         stringsAsFactors = F)
 
@@ -19,16 +22,18 @@ df.stm %<>%
   mutate(time = row_number()) %>% 
   rename("doc_id" = "X")
 
+
+
 ########### NEED TO INCORPORATE INTO MAIN PREPROCESSING FUNCTION
-# Use gsub() to replace "gen z" with "gen_z"
-df.stm$text <- gsub("gen z", "gen_z", df.stm$text)
+# Use gsub() to replace "" with ""
+df.stm$text <- gsub("", "", df.stm$text)
 
 
 # re-order 
 df.stm_ro <- df.stm[,c("doc_id", "text", "month")]
 
 # stm requires metadata in df or matrix format
-metadata <- df.stm_ro[,c('month', 'text')]
+metadata <- df.stm_ro[,c("month", "text")]
 
 
 # Prep corpus
@@ -54,7 +59,7 @@ out <- textProcessor(
   v1 = FALSE
 )
 
-?readCorpus
+
 out_d <- prepDocuments(
   documents = out$documents,
   vocab = out$vocab,

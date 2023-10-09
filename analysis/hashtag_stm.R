@@ -15,7 +15,7 @@ out <- textProcessor(
   df$hashtags,
   metadata = meta,
   verbose = TRUE,
-  lowercase = FALSE
+  lowercase = FALSE,
   removepunctuation = FALSE,
   removestopwords = FALSE,
   removenumbers = FALSE,

@@ -1,0 +1,3 @@
+# composite files too big to push and pull from git
+data/pickles/rawdata.pkl
+data/pickles/ekphrasis_data.pkl

@@ -23,7 +23,5 @@ for year in years:
 
 mega_df = pd.concat(dataframes)
 
-print(mega_df.columns)
-
 with open('rawdata.pkl', 'wb') as file:
     pickle.dump(mega_df, file)

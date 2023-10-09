@@ -6,7 +6,7 @@ from ekphrasis.classes.tokenizer import SocialTokenizer
 from ekphrasis.dicts.emoticons import emoticons
 
 # Load in dataset
-with open('rawdata.pkl', 'rb') as input:
+with open('pickles/rawdata.pkl', 'rb') as input:
     tweets_df = pickle.load(input)
 
 # keep english

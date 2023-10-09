@@ -1,6 +1,5 @@
 ####### STRUCTURAL TOPIC MODELING
 
-
 library(tidytext)
 library(magrittr)
 library(dplyr)

@@ -42,7 +42,7 @@ dates = [start_date + timedelta(days=int(time)) for time in time_periods]
 # Create a line graph with real dates on the x-axis
 plt.figure(figsize=(20, 8))
 plt.hist(dates, bins=152, edgecolor='k', alpha=0.7) # each bin is a week
-plt.title(f'Frequency Distribution of "{target_hashtag}" Over Time')
+plt.title(f'Frequency Distribution of #{target_hashtag} Over Time')
 plt.xlabel('Date')
 plt.ylabel('Frequency')
 

@@ -1,0 +1,136 @@
+Certainly! Here are some words and phrases related to "work" that you might consider using in your text mining study, especially in the context of neurodiversity:
+
+### General Work-Related Terms:
+1. Work
+2. Job
+3. Employment
+4. Occupation
+5. Profession
+6. Career
+7. Vocation
+8. Position
+9. Role
+10. Task
+
+### Work Environment:
+11. Workplace
+12. Office
+13. Worksite
+14. Remote Work
+15. Telecommuting
+16. Work from Home
+-- we should combine "from home" into single token: "from_home"
+17. Virtual Work
+18. Desk
+19. Cubicle
+20. Workstation
+
+### Work Dynamics:
+21. Teamwork
+22. Collaboration
+23. Cooperation
+24. Partnership
+25. Synergy
+26. Interaction
+27. Communication
+28. Discussion
+29. Meeting
+
+
+### Work Performance:
+31. Productivity
+32. Efficiency
+33. Performance
+34. Output
+35. Result
+36. Achievement
+37. Milestone
+38. Goal
+39. Objective
+40. Target
+
+### Work Schedule:
+41. Shift
+42. Schedule
+43. Hours
+44. Overtime
+45. Part-Time
+46. Full-Time
+47. Freelance
+48. Contract
+49. Temporary
+50. Permanent
+
+### Work Challenges:
+51. Stress
+52. Burnout
+53. Pressure
+54. Overload
+55. Challenge
+56. Difficulty
+57. Obstacle
+58. Hurdle
+59. Problem
+60. Issue
+
+### Work-Life Balance:
+61. Balance
+62. Work-Life
+63. Time Off
+64. Leave
+65. Vacation
+66. Break
+67. Rest
+68. Relaxation
+69. Downtime
+70. Leisure
+
+### Work Ethics and Values:
+71. Ethics
+72. Integrity
+73. Honesty
+74. Responsibility
+75. Accountability
+76. Dedication
+77. Commitment
+78. Loyalty
+79. Reliability
+80. Punctuality
+
+### Work Rights and Policies:
+81. Rights
+82. Policy
+83. Regulation
+84. Law
+85. Rule
+86. Guideline
+87. Standard
+88. Procedure
+89. Compliance
+90. Contract
+
+### Neurodiversity and Inclusion at Work:
+91. Inclusion
+92. Diversity
+93. Accommodation
+94. Accessibility
+95. Support
+96. Adjustment
+97. Sensitivity
+98. Awareness
+99. Acceptance
+100. Empathy
+
+### Career Development:
+101. Development
+102. Growth
+103. Promotion
+104. Advancement
+105. Training
+106. Learning
+107. Skill
+108. Competency
+109. Expertise
+110. Mastery
+
+Feel free to modify, combine, or expand upon these terms based on the specific needs and context of your study. Considering various forms of words (e.g., work, worked, working) and related jargon or colloquial terms might also be beneficial to ensure a comprehensive analysis of the text data related to work. If you need further assistance or specific information from scientific literature, please let me know!

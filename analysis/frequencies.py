@@ -32,6 +32,7 @@ date_counters = {}
 for date in df['date'].unique():
     date_counters[date] = Counter()
 
+# Count up term frequencies
 i = 0
 for index, row in df. iterrows():
     date = row['date']
@@ -40,6 +41,24 @@ for index, row in df. iterrows():
     token_counter = Counter(filtered_text)
     date_counters[date] += token_counter
 
-out = pd.DataFrame.from_dict(date_counters, orient='index')
+freq = pd.DataFrame.from_dict(date_counters, orient='index')
+freq.to_csv('custom_freq.csv')
 
-out.to_csv('custom_frequencies.csv')
+# Sum up subcategories
+subcat = pd.DataFrame()
+for subcategory, tokens in full.items():
+    subcat[subcategory] = freq.filter(items=tokens).sum(axis=1)
+
+subcat.to_csv('data/subcat_freq.csv')
+
+# Sum up bigger categories
+bigcats = [("Work", work.columns),
+           ("Lockdown", lockdown.columns),
+           ("Supervisor", supervisor.columns)]
+
+cat = pd.DataFrame()
+for category, subs in bigcats:
+    cat[category] = subcat.filter(items=subs).sum(axis=1)
+
+cat.to_csv('data/category_freq.csv')
+

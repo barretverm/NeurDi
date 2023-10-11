@@ -42,18 +42,17 @@ for index, row in df. iterrows():
     date_counters[date] += token_counter
 
 freq = pd.DataFrame.from_dict(date_counters, orient='index')
-freq.to_csv('custom_freq.csv')
+freq.to_csv('data/custom_term_freq.csv')
 
 # Sum up subcategories
 subcat = pd.DataFrame()
 for subcategory, tokens in full.items():
     subcat[subcategory] = freq.filter(items=tokens).sum(axis=1)
 
-subcat.to_csv('data/subcat_freq.csv')
+subcat.to_csv('data/subcategory_freq.csv')
 
 # Sum up bigger categories
 bigcats = [("Work", work.columns),
-           ("Lockdown", lockdown.columns),
            ("Supervisor", supervisor.columns)]
 
 cat = pd.DataFrame()

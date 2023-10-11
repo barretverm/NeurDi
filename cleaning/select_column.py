@@ -20,7 +20,9 @@ hashtag_pattern = re.compile('<hashtag>(.*?)</hashtag>')
 
 tweets_df['parsed_hashtags'] = tweets_df['tokenized_text'].str.findall(hashtag_pattern)
 
-tweets_df['hashtags'] = tweets_df['parsed_hashtags'].apply(lambda list: [hashtag.replace(" ", "") for hashtag in list])
+tweets_df['hashtags'] = tweets_df['parsed_hashtags'].apply(
+    lambda list: [hashtag.replace(" ", "") for hashtag in list]
+)
 
 tweets_df = tweets_df[['tweet_id', 'hashtags', 'days_after']]
 
